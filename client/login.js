@@ -22,10 +22,15 @@ export class LoginFormComponent implements OnInit {
     .subscribe(user => console.log(`Welcome ${user.username}`));
   }
 
-  signup(){
-    this.session.signup(this.username,this.password)
-    .catch(e => this.error = e)
-    .subscribe();
+  signup(form) {
+    this.session.signup(form.value)
+      .subscribe(
+        (user) =>{
+           
+           console.log("create")
+         },
+        (err) => this.error = err
+      );
   }
 
   logout(){

@@ -1,0 +1,18 @@
+<h1> Signup </h1>
+<form (ngSubmit)="signup(myForm)" #myForm="ngForm">
+  <label> Username </label>
+  <input type="text" [(ngModel)]="username" name="username"/>
+  <label> email </label>
+  <input type="text" [(ngModel)]="email" name="email"/>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="password" name="password"/>
+  <label> age </label>
+  <input type="text" [(ngModel)]="age" name="age"/>
+  <label for="address">Your Address</label>
+  <input type="text" [(ngModel)]="country" class="form-control margin-bottom-20" id="address1" name="country" placeholder="Enter your country">
+  <input type="text" [(ngModel)]="city" class="form-control" id="address2" name="city" placeholder="Enter your city">
+  <label> Imagen </label>
+  <input type="img" [(ngModel)]="img" name="img"/>
+<button class="submit"></button>
+</form>
+<p class="error"> {{ error }} </p>

@@ -5,9 +5,20 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 interface User {
-  username:string,
-  password:string
-}
+    _id:string,
+    username:string,
+    password:string,
+    email:string,
+    age:number,
+    address:{
+      country:String,
+      city:String
+    }
+    imgUrl: { 
+      type: String, 
+      default: "img/user-placeholder.png" }  
+  }
+
 
 @Injectable()
 export class SessionService {
@@ -41,10 +52,9 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  signup(username:string, password:string):Observable<any>{
-    return this.http.post(`${this.BASEURL}/api/auth/signup`, {username,password}, this.options)
+  signup(user:User):Observable<User> {
+    return this.http.post(`${this.BASEURL}/api/auth/signup`, user, this.options)
       .map(res => res.json())
-      .map(this.configureUser(true))
       .catch(this.handleError);
   }
 
