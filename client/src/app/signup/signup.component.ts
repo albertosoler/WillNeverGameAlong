@@ -13,11 +13,9 @@ export class SignupComponent implements OnInit {
   error:string;
   password:string;
   email:string;
-  age:number ; 
   city:string;
-  imgUrl:{ 
-    type: String, 
-    default: "img/user-placeholder.png" } 
+  country:string;
+
 
   constructor(public session:SessionService, private router:Router) { }
 
@@ -27,7 +25,7 @@ export class SignupComponent implements OnInit {
     this.session.signup(form.value)
       .subscribe(
         (user) =>{
-           
+           this.router.navigate(["/"])
            console.log("create")
          },
         (err) => this.error = err

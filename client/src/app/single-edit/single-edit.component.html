@@ -1,0 +1,52 @@
+<div class="container-fluid bg-light py-3">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">Editar</h3>
+                </div>
+                <div class="card card-body">
+                  
+                    <form >
+                            <div *ngIf='!user.imgUrl'>
+                            <div class="form-group has-success">
+                            <img src="../{{user.imgUrl}}" alt="">
+                            <label for="usu-img">Profile picture:</label>
+                            <input class="form-control" id="usu-img" type="file" name="imgUrl">
+                            </div>
+                            </div>
+                        <div class="form-group has-success">
+                            <label> Username </label>
+                            <input type="text" [(ngModel)]="user.username" class="form-control input-lg" name="username" placeholder="{{user.username}}"/>
+                        </div>
+
+                        <div class="form-group has-success">
+                            <label> Email </label>
+                            <input type="text" [(ngModel)]="user.email" class="form-control input-lg" name="email" placeholder="{{user.email}}"/>
+                        </div>
+                      
+                        
+                        <div class="form-group has-success">
+                            <label> Password </label>
+                            <input type="password" [(ngModel)]="user.password" name="password" class="form-control input-lg" placeholder="Password"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label> Country </label>
+                            <input type="text" [(ngModel)]="user.country" name="country" class="form-control input-lg" placeholder="Country"/>
+                        </div>
+
+                        <div class="form-group has-success">
+                            <label> City </label>
+                               <input type="text" [(ngModel)]="user.city" name="city" class="form-control input-lg" placeholder="City"/>
+                        </div>
+                  
+                        <button class="btn btn-lg btn-primary btn-block" (click)="edit(user)"  >Submit</button>
+                        <button class="btn btn-lg btn-primary btn-block" (click)=" deletePhone()" >Delete</button>
+                        <!-- <button  (click)="signup()" class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit"> -->
+                      </form>
+                </div>
+        </div>
+    </div>
+</div>
+<p class="error"> {{ error }} </p>

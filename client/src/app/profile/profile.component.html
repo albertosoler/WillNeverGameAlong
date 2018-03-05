@@ -1,0 +1,115 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div *ngIf='nameId'>
+    <img src="{{nameId.imgUrl}}" class="navbar-brand" [routerLink]='["profile"]'>
+
+  </div>
+
+  <div class="collapse navbar-collapse navbar-light bg-faded" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/event/allshow']">Events
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/event/myshow']">My Events</a>
+      </li>
+
+
+  
+    </ul>
+
+    <ul class="navbar-nav ml-auto ml-6 end-lg-0">
+
+      <li class="dropdown ">
+          
+          <a  href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{nameId.username}}
+         
+          <span class="caret"></span>
+        </a>
+    
+      
+        <ul class="dropdown-menu">
+
+          <li class="nav-item active">
+            <div *ngIf="nameId">
+            <a   class="nav-link" [routerLink]="['edit', nameId._id]"> Edit Profile</a>
+          </div>
+          </li>
+          <li class="nav-item active">
+       
+              <a class="nav-link" (click)="logout()" [routerLink]="['/home']"> Logout</a>
+            
+            </li>
+
+        </ul>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+
+    <div class="container" id="quehacer">
+      <div class="row">
+        <div class="col-sm ">
+          <h5>¿Qué puedo hacer ahora?</h5>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+   
+    <div class="col-sm-7 " id="newEvent">
+      <a  [routerLink]='["/event/newEvent"]'>
+
+        <i class="far fa-calendar-plus"></i>
+        <H3>Nuevo Evento</H3>
+      </a>
+    </div>
+  
+    <div class="col-sm-5" id="newEvent1">
+ 
+
+        <a [routerLink]='["/event/allshow"]'>
+
+          <i class="far fa-calendar-plus"></i>
+          <H3>Unirme a Evento</H3>
+        </a>
+    </div>
+    
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="parent">
+  <div *ngIf='nameId'>
+    <div class="el">
+
+      <!-- <a [routerLink]="['/edit',nameId._id]">hola</a> -->
+
+      <h3> Hola a tu pagina {{nameId.username}} </h3>
+      <a [routerLink]="['edit', nameId._id]">Editar</a>
+    </div>
+  </div>
+</div>
+<button (click)="logout()"> Logout </button>
+
+<!-- <a [routerLink]="['/edit', a._id]">EDITAR</a> -->
+
+
+<!-- [routerLink]="['edit', nameId._id] -->

@@ -1,7 +1,76 @@
-<h1> Authentication Sample </h1>
+
 <div *ngIf="!session.getUser()">
 
-  <a  [routerLink]="['login']">Login</a>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-6 mt-lg-0"></ul>
+          <a class="navbar-brand" [routerLink]="['/login']">Login</a>
+          <a class="navbar-brand" [routerLink]="['/signup']">Signup</a>
+          </div>
+
+          <div *ngIf="error" class="error"> {{ error }} </div>
+
+        </nav> 
+      </div>
+   
+          <div *ngIf="session.getUser()">
+              <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav mr-auto mt-6 mt-lg-0"></ul>
+                    <div>
+                    <a (click)="logout()" class="navbar-brand" [routerLink]="['home']"> Logout </a>
+                    </div>
+                    <div class="profile"></div>
+                        <a class="navbar-brand" [routerLink]="['/profile']">My Profile</a>
+                   </div>
+        
+                    </nav>
+                    </div>
+                    <div class="logotipo">
+                      <!-- <img src="../../../public/img/willneverwalkalong.png"> -->
+                    </div>
+
+
+
+
+                    <div class="Img-background">
+                      <img src="https://ugc.kn3.net/i/origin/https://catriel25noticias.com/wp-content/uploads/2017/08/%C3%82%C2%A1Los-10-deportes-mas-practicados-en-todo-el-mundo.jpg" width="100%" height="800px">
+                    </div>
+
+
+                    
+              
+           
+
+      
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <a  [routerLink]="['login']">Login</a>
   <a  [routerLink]="['signup']">Signup</a>
 
   <p *ngIf="error" class="error"> {{ error }} </p>
@@ -10,4 +79,4 @@
 
 <div *ngIf="session.getUser()">
   <button (click)="logout()"> Logout </button>
-</div>
+</div> -->

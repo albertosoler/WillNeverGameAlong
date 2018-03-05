@@ -1,0 +1,59 @@
+
+
+    <div class="container-fluid bg-light py-3">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0">Signup</h3>
+                        </div>
+                        <div class="card card-body">
+                          
+                            <form (ngSubmit)="createEvent(myForm)" #myForm="ngForm">   
+                                    <div class="form-group">
+                                            <label for="address">Your Location</label>
+                                            <input type="text" [(ngModel)]="lat" class="form-control margin-bottom-20" id="location1" name="lat" placeholder="Enter your latitud">
+                                            <input type="text" [(ngModel)]="lng" class="form-control" id="location2" name="lng" placeholder="Enter longitud">
+                                        </div>
+        
+                                <div class="form-group has-success">
+                                    <label> Description </label>
+                                    <textarea [(ngModel)]="description"  id="description" class="form-control" name="description" placeholder="Short plan description"></textarea>
+                                </div>
+                              
+                                
+                                <div class="form-group has-success">
+                                    <label> Time </label>
+                                    <input id="time" class="form-control" type="time" name="date" >
+                                </div>
+                                
+                                <div class="form-group has-success">
+                                    <label> Nº Participantes </label>
+                                    <input [(ngModel)]="maxPart"  id="maxPart" class="form-control" name="maxPart" placeholder="Participantes">
+                                </div>
+
+                                <div class="form-group has-success">
+                                        <label> Deporte </label>
+                                        <!-- <input [(ngModel)]="deporte"  id="deporte" class="form-control" name="deporte" placeholder="deporte"> -->
+                                        <div class="form-group">
+                                                <label for="sel1">Select list:</label>
+                                                <select class="form-control" id="sel1" [(ngModel)]="deporte" name="deporte">
+                                                  <option>Futbol 11</option>
+                                                  <option>Futbol 7</option>
+                                                  <option>Futbol Sala</option>
+                                                  <option>Baloncesto</option>
+                                                  <option>Padel</option>
+                                                  <option>Tenis</option>
+                                                </select>
+                                              </div>
+                              
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block" (click)="createEvent()" >Create Event</button>
+                              </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <p class="error"> {{ error }} </p>
+
+

@@ -13,9 +13,9 @@ let loginPromise = (req, user) => {
 
 /* SIGNUP */
 router.post('/signup', (req, res, next) => {
-  const {username,password,email, age,city,country} = req.body;
-  if (!username || !password || !email) return res.status(400).json({ message: 'Provide username and password' })
-  else if (city === "") return res.status(400).json({ message: 'Provide city' })
+  const {username,password,email,city,country} = req.body;
+  if (!username || !password || !email) return res.status(400).json({ message: 'Provide username, password and email' })
+  else if ((city === "")||(country === "")) return res.status(400).json({ message: 'Provide city and country' })
   User.findOne({ username }, '_id')
     .then(foundUser =>{
       if (foundUser) return res.status(400).json({ message: 'The username already exists' });
@@ -25,9 +25,8 @@ router.post('/signup', (req, res, next) => {
         username,
         password: hashPass,
         email,
-        age,
-        "address.country": country,
-        "address.city" : city
+        city,
+        country
 
         
       });
@@ -35,6 +34,7 @@ router.post('/signup', (req, res, next) => {
           .then(user => loginPromise(req,user))
           .then(user => {
             debug(`Registered user ${user._id}. Welcome ${user.username}`);
+            
             res.status(200).json(req.user)
           }) 
     })
@@ -44,7 +44,7 @@ router.post('/signup', (req, res, next) => {
     }) 
 });
 
-
+//*LOGIN*//
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
     if (err) return res.status(500).json({ message: 'Something went wrong' });
@@ -64,5 +64,6 @@ router.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated()) return res.status(200).json(req.user);
   res.status(403).json({ message: 'Unauthorized' });
 });
+
 
 module.exports = router;

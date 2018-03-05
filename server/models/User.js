@@ -2,18 +2,16 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-    name:String,
     username: String,
     password: String,
     email:String,
     age: Number,
-    address:{
-      country:String,
-      city:String
-    },
+    country:String,
+    city:String,
+   
     imgUrl:{ 
       type: String, 
-      default: "img/user-placeholder.png" }  
+      default: "../public/img/user-placeholder.png" }  
   }, {
   timestamps: {
     createdAt: 'created_at',
