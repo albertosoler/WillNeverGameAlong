@@ -12,11 +12,13 @@ const EventSchema = new Schema(
     img:String,
     description: String,
     location: {
-      lat: String,
-      lng: String
+      lat: Number,
+      lng: Number
   },
+    direction:String,
     maxPart: Number,
     date: String,
+    time:String,
     coment_id:[{
       type:Schema.Types.ObjectId,
       ref: "Comentario"

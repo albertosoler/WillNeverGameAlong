@@ -9,8 +9,10 @@ import {ProfileService} from "../../services/profile.service"
 })
 export class SingleEditComponent implements OnInit {
 
+
   user={};
   user_id:any;
+
   constructor(public service:ProfileService,  private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class SingleEditComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+
 
 
 

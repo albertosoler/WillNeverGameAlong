@@ -10,11 +10,9 @@ interface User {
     password:string,
     email:string,
     age:number,
-      country:String,
-      city:String
-    imgUrl: { 
-      type: String, 
-      default: "img/user-placeholder.png" }  
+    country:String,
+    city:String
+ 
   }
 
 

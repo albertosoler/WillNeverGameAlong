@@ -8,6 +8,7 @@ export interface User{
   _id:string,
   username:string,
   password:string,
+  direction:String,
   email:string,
   age:number,
   country:String,

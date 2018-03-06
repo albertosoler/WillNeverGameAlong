@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {ProfileService} from "../../services/profile.service";
 import { SessionService } from '../../services/session.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -13,13 +14,16 @@ export class ProfileComponent implements OnInit {
   error:string;
  
   constructor(public service:ProfileService,public session:SessionService,  private router:Router) {
-
     this.service.getUserInfo().subscribe(list => this.nameId = list.user);
     console.log(this.nameId)
+
   }
 
 
   ngOnInit() {
+
+  
+
 }
 
 logout(){

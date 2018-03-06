@@ -4,10 +4,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div *ngIf='nameId'>
-    <img src="{{nameId.imgUrl}}" class="navbar-brand" [routerLink]='["profile"]'>
 
-  </div>
+
 
   <div class="collapse navbar-collapse navbar-light bg-faded" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
@@ -21,31 +19,31 @@
       </li>
 
 
-  
+
     </ul>
 
     <ul class="navbar-nav ml-auto ml-6 end-lg-0">
 
       <li class="dropdown ">
-          
-          <a  href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{nameId.username}}
-         
+
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{nameId.username}}
+
           <span class="caret"></span>
         </a>
-    
-      
+
+
         <ul class="dropdown-menu">
 
           <li class="nav-item active">
             <div *ngIf="nameId">
-            <a   class="nav-link" [routerLink]="['edit', nameId._id]"> Edit Profile</a>
-          </div>
+              <a class="nav-link" [routerLink]="['edit', nameId._id]"> Edit Profile</a>
+            </div>
           </li>
           <li class="nav-item active">
-       
-              <a class="nav-link" (click)="logout()" [routerLink]="['/home']"> Logout</a>
-            
-            </li>
+
+            <a class="nav-link" (click)="logout()" [routerLink]="['/home']"> Logout</a>
+
+          </li>
 
         </ul>
     </ul>
@@ -59,57 +57,56 @@
     <div class="container" id="quehacer">
       <div class="row">
         <div class="col-sm ">
-          <h5>¿Qué puedo hacer ahora?</h5>
         </div>
       </div>
     </div>
+<br>
 
 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="imagebox">
+            <a [routerLink]='["/event/newEvent"]'>
+              <img src="https://www.verdict.co.uk/wp-content/uploads/2018/01/Champions-League-Stadium-hd-wallpapers.jpg" class="category-banner img-responsive"
+                width="100%" height="400px">
+              <span class="imagebox-desc">
+                <h1>Add Event</h1>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="imagebox">
+            <a [routerLink]='["/event/allshow"]'>
+              <img src="http://static.wixstatic.com/media/3747e3_8b3794965680427499458a3f3fceee5c.jpg/v1/fill/w_950,h_437,al_c,q_85,usm_0.66_1.00_0.01/3747e3_8b3794965680427499458a3f3fceee5c.webp"
+                width="100%" height="400px" class="category-banner img-responsive">
+              <span class="imagebox-desc">
+                <h1>Search Event</h1>
+              </span>
+            </a>
+          </div>
+        </div>
 
-
-
-   
-    <div class="col-sm-7 " id="newEvent">
-      <a  [routerLink]='["/event/newEvent"]'>
-
-        <i class="far fa-calendar-plus"></i>
-        <H3>Nuevo Evento</H3>
-      </a>
+      </div>
     </div>
-  
-    <div class="col-sm-5" id="newEvent1">
- 
 
-        <a [routerLink]='["/event/allshow"]'>
-
-          <i class="far fa-calendar-plus"></i>
-          <H3>Unirme a Evento</H3>
-        </a>
-    </div>
     
 
-</div>
-</div>
-
-
-
-
-
-
-<div class="parent">
-  <div *ngIf='nameId'>
-    <div class="el">
-
-      <!-- <a [routerLink]="['/edit',nameId._id]">hola</a> -->
-
-      <h3> Hola a tu pagina {{nameId.username}} </h3>
-      <a [routerLink]="['edit', nameId._id]">Editar</a>
-    </div>
   </div>
 </div>
-<button (click)="logout()"> Logout </button>
-
-<!-- <a [routerLink]="['/edit', a._id]">EDITAR</a> -->
 
 
-<!-- [routerLink]="['edit', nameId._id] -->
+
+
+
+
+<div class="containerp">
+  <div class="avatar-flip">
+    <img src="{{nameId.image}}" height="150" width="150">
+    <img src="https://media.giphy.com/media/r1IMdmkhUcpzy/giphy.gif" height="150" width="150">
+  </div>
+  <h2>{{nameId.username}}</h2>
+  <h4>{{nameId.country}}, {{nameId.city}}</h4>
+  <h4>email : {{nameId.email}}</h4>
+</div>

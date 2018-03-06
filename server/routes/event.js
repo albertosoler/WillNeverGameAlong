@@ -53,6 +53,15 @@ Event.findByIdAndUpdate(
 });
 
 
+router.get('/event/join/:id', function (req, res, next) {
+  id = req.params.id
+  Event.findById(req.params.id)
+    .then(list => res.status(200).json(list))
+    .catch(e => res.status(500).json(e))
+});
+
+
+
 
 
 
@@ -71,7 +80,9 @@ router.post("/event/newEvent", (req, res, next) => {
   const lat = req.body.lat;
   const lng = req.body.lng;
   const maxPart = req.body.maxPart;
-  const date = req.body.time;
+  const time = req.body.time;
+  const date = req.body.date
+  const direccion = req.body.direccion;
   var img = "";
 
   if(deporte==="Futbol 11"){
@@ -93,11 +104,13 @@ router.post("/event/newEvent", (req, res, next) => {
     author,
     description,
     date,
+    time,
     deporte,
     img,
     "location.lat": lat,
     "location.lng" : lng,
     maxPart,
+    direccion
 
   });
 
@@ -144,7 +157,7 @@ router.post("/event/newEvent", (req, res, next) => {
 //     .catch(e => res.status(500).json(e));
 // });
 
-router.put("/edit/:eventId", (req, res, next) => {
+router.put("/event/edit/:eventId", (req, res, next) => {
   const eventId = req.params.eventId;
   const user = req.user;
 

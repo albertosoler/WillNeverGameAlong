@@ -1,0 +1,26 @@
+
+.container{
+    text-align: center;
+}
+.pepe{
+    border: 2px solid black; 
+    margin-left: 3px;
+    margin-top:3px;
+    height: 400px
+}
+.fa-futbol{
+    width: 50px;
+    height: 50px;
+}
+.juan{
+    text-align: center;
+    
+}
+.fa-table-tennis{
+    width: 50px;
+    height: 50px;
+}
+.fa-basketball-ball{
+    width: 50px;
+    height: 50px;
+}

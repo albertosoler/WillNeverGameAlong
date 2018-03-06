@@ -4,8 +4,8 @@ const debug = require('debug')("server:auth");
 const User = require("../models/User");
 const bcrypt = require('bcrypt');
 const multer  = require('multer');
+const upload = require('../configs/multer');
 const passport = require('passport');
-const upload = multer({ dest: '../public/uploads' });
 
 
 
@@ -21,7 +21,7 @@ router.get('/profile', (req, res, next) => {
 
 
 
-router.put('/edit/:id',upload.single('imgUrl'),(req, res, next) => {
+router.put('/edit/:id',(req, res, next) => {
   console.log(req.body)
     const userId  = req.params.id;
     const updates = {
@@ -30,18 +30,21 @@ router.put('/edit/:id',upload.single('imgUrl'),(req, res, next) => {
       age: req.body.age,
       email:req.body.email,
       city:req.body.city,
-      country:req.body.country
+      country:req.body.country,
       };
-      if(req.file){
-        updates.imgUrl = `../public/uploads/${req.file.filename}`;
-      }
+      
       if (req.body.password !== ""){
         const password = req.body.password;
         let salt = bcrypt.genSaltSync(10);
         let hashPass = bcrypt.hashSync(password, salt);
         updates.password = hashPass;
-      }
+      }else{
+        const password = password;
+        }
+      
+      
 
+    
     User.findByIdAndUpdate(userId,updates, {new:true})
     .then(user => res.status(200).json({user}))
      .catch(e => res.status(500).json(e))

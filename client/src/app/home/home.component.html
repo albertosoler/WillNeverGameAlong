@@ -1,82 +1,59 @@
 
-<div *ngIf="!session.getUser()">
 
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-6 mt-lg-0"></ul>
-          <a class="navbar-brand" [routerLink]="['/login']">Login</a>
-          <a class="navbar-brand" [routerLink]="['/signup']">Signup</a>
-          </div>
+  <div *ngIf="!session.getUser()">
 
-          <div *ngIf="error" class="error"> {{ error }} </div>
+    
+    <input type="radio" checked id="toggle--login" name="toggle" class="ghost" />
+    <input type="radio" id="toggle--signup" name="toggle" class="ghost" />
 
-        </nav> 
-      </div>
-   
-          <div *ngIf="session.getUser()">
-              <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <ul class="navbar-nav mr-auto mt-6 mt-lg-0"></ul>
-                    <div>
-                    <a (click)="logout()" class="navbar-brand" [routerLink]="['home']"> Logout </a>
-                    </div>
-                    <div class="profile"></div>
-                        <a class="navbar-brand" [routerLink]="['/profile']">My Profile</a>
-                   </div>
-        
-                    </nav>
-                    </div>
-                    <div class="logotipo">
-                      <!-- <img src="../../../public/img/willneverwalkalong.png"> -->
-                    </div>
+    <img class="logo framed" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/VfL_Wolfsburg_logo.svg/1000px-VfL_Wolfsburg_logo.svg.png"
+      alt="Tumblr logo" />
+
+    <form class="form form--login framed">
+      <input type="text" [(ngModel)]="username" id="uname1" required="" name="username" class="input input--top" />
+      <input type="password" id="pwd1" [(ngModel)]="password" name="password" required="" autocomplete="new-password" class="input"
+      />
+      <input type="submit" (click)="login()" class="input input--submit" />
+
+      <label for="toggle--signup" class="text text--small text--centered">New?
+        <b>Sign up</b>
+      </label>
+    </form>
+
+    <form (ngSubmit)="signup(myForm)" #myForm="ngForm" class="form form--signup framed">
 
 
+      <input [(ngModel)]="email" type="email" placeholder="Email" class="input input--top" name="email" placeholder="Email" />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" class="input" />
+      <input [(ngModel)]="username" type="text" placeholder="Username" class="input" name="username" />
+      <input [(ngModel)]="country" type="text" placeholder="Country" class="input" name="country" />
+      <input [(ngModel)]="city" type="text" placeholder="City" class="input" name="city" />
+      <input type="submit" class="input input--submit" (click)="signup()" />
+
+      <label for="toggle--login" class="text text--small text--centered">Not new?
+        <b>Log in</b>
+      </label>
+    </form>
+
+    <div class="photo-cred">
+      <a class="text text--small" title="Check out their blog." href="http://cabinporn.com/post/125371354365/the-cabin-book-book-in-the-wild-21-in-the-us"></a>
+    </div>
+
+    <div  class="fullscreen-bg"></div>
+  </div>
 
 
-                    <div class="Img-background">
-                      <img src="https://ugc.kn3.net/i/origin/https://catriel25noticias.com/wp-content/uploads/2017/08/%C3%82%C2%A1Los-10-deportes-mas-practicados-en-todo-el-mundo.jpg" width="100%" height="800px">
-                    </div>
+  <div *ngIf="session.getUser()">
+     
 
+    <div class="fullscreen-bg ">
+      <button [routerLink]="['/profile']" class="btn striped-shadow white">
+        <span>Profile</span>
+      </button>
+      <button (click)="logout()" class="btn striped-shadow white">
+        <span>Logout</span>
+      </button>
+    </div>
 
-                    
-              
-           
+  </div>
 
-      
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <a  [routerLink]="['login']">Login</a>
-  <a  [routerLink]="['signup']">Signup</a>
-
-  <p *ngIf="error" class="error"> {{ error }} </p>
-
-</div>
-
-<div *ngIf="session.getUser()">
-  <button (click)="logout()"> Logout </button>
-</div> -->

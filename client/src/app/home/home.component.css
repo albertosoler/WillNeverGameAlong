@@ -3,10 +3,282 @@
     height: 45px;
 }
 .Img-background{
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
     
 }
 .profile{
   padding: 5px
 }
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+.ghost {
+  position: absolute;
+  left: -100%;
+}
+
+.framed {
+  position: relative;
+  top: 50%; left: 50%;
+  width: 15rem;
+  margin-left: -7.5rem;
+}
+
+.logo {
+  margin-top: -9em;
+  cursor: default;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.form {
+  margin-top: -4.5em;
+  transition: 1s ease-in-out;
+}
+
+.input {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  font-size: 1.125rem;
+  line-height: 3rem;
+  width: 100%; height: 3rem;
+  color: #444;
+  background-color: rgba(255,255,255,.9);
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.7);
+  padding: 0 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+  .input:focus {
+    outline: none;
+  }
+  .input--top {
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-top: 0;
+  }
+  .input--submit {
+    background-color:#53b948;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-top: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+.text {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+  text-decoration: none;
+}
+  .text--small {
+    opacity: 0.85;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+    .text--small:hover {
+      opacity: 1;
+    }
+  .text--omega {
+    width: 200%;
+    margin: 0 0 1rem -50%;
+    font-size: 1.5rem;
+    line-height: 1.125;
+    font-weight: normal;
+  }
+  .text--centered {
+    display: block;
+    text-align: center;
+  }
+  .text--border-right {
+    border-right: 1px solid rgba(255,255,255,0.5);
+    margin-right: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+.legal {
+  position: absolute;
+  bottom: 1.125rem; left: 1.125rem;
+}
+
+.photo-cred {
+  position: absolute;
+  right: 1.125rem; bottom: 1.125rem;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  z-index: -1;
+  top:0; right:0; bottom:0; left:0;
+  background: url(https://sccoaches.org/wp-content/uploads/2015/01/multi-sport-background.jpg) center;
+  background-size: cover;
+}
+
+#toggle--login:checked ~ .form--signup { left:200%; visibility:hidden; }
+#toggle--signup:checked ~ .form--login { left:-100%; visibility:hidden; }
+
+@media (height:300px){.legal,.photo-cred{display:none}}
+
+
+
+
+
+
+
+
+
+/* ////buton/// */
+
+
+
+
+@import 'https://fonts.googleapis.com/css?family=Bungee+Shade';
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+
+button {
+  overflow: visible;
+  border: 0;
+  padding: 0;
+  margin: 1.8rem;
+}
+.btn.striped-shadow span {
+  display: block;
+  position: relative;
+  z-index: 2;
+  border: 5px solid;
+}
+.btn.striped-shadow.white span {
+  border-color: #fff;
+  color: #fff;
+  /* background: #5d9cc3; */
+  background:#53b948;
+}
+
+.btn.striped-shadow.blue span {
+  border-color: #4183D7;
+  background:#77bfa1;
+  color: #4183D7;
+}
+.btn.striped-shadow.dark span {
+  border-color: #393939;
+  background: #77bfa1;
+  color: #393939;
+}
+
+.btn {
+  font-family: 'Bungee Shade', sans-serif;
+  height: 80px;
+  line-height: 65px;
+  display: inline-block;
+  letter-spacing: 1px;
+  position: relative;
+  font-size: 1.35rem;
+  transition: opacity .3s, z-index .3s step-end, -webkit-transform .3s;
+  transition: opacity .3s, z-index .3s step-end, transform .3s;
+  transition: opacity .3s,
+    z-index .3s step-end,
+    transform .3s,
+    -webkit-transform .3s;
+  z-index: 1;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn {
+  width: 155px;
+  height: 48px;
+  line-height: 38px;
+}
+
+button.btn.striped-shadow.white:after, button.btn.striped-shadow.white:before {
+  background-image: linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 5px,
+    #fff 5px,
+    #fff 10px,
+    transparent 10px
+  );
+}
+
+button.btn.striped-shadow.blue:after, button.btn.striped-shadow.blue:before {
+  background-image: linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 5px,
+    #4183D7 5px,
+    #4183D7 10px,
+    transparent 10px
+  );
+}
+
+button.btn.striped-shadow.dark:after, button.btn.striped-shadow.dark:before {
+  background-image: linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 5px,
+    #393939 5px,
+    #393939 10px,
+    transparent 10px
+  );
+}
+
+button.btn.striped-shadow:hover:before {
+  max-height: calc(100% - 10px);
+}
+
+button.btn.striped-shadow:after {
+  width: calc(100% - 4px);
+  height: 8px;
+  left: -10px;
+  bottom: -9px;
+  background-size: 15px 8px;
+  background-repeat: repeat-x;
+}
+button.btn.striped-shadow:after, button.btn.striped-shadow:before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  transition: max-height .3s, width .3s, -webkit-transform .3s;
+  transition: transform .3s, max-height .3s, width .3s;
+  transition: transform .3s, max-height .3s, width .3s, -webkit-transform .3s;
+}
+
+.btn.striped-shadow:hover {
+  -webkit-transform: translate(-12px, 12px);
+  -ms-transform: translate(-12px, 12px);
+  transform: translate(-12px, 12px);
+  z-index: 3;
+}
+
+button.btn.striped-shadow:hover:after, button.btn.striped-shadow:hover:before {
+  -webkit-transform: translate(12px, -12px);
+  -ms-transform: translate(12px, -12px);
+  transform: translate(12px, -12px);
+}
+button.btn.striped-shadow:before {
+  width: 8px;
+  max-height: calc(100% - 5px);
+  height: 100%;
+  left: -12px;
+  bottom: -5px;
+  background-size: 8px 15px;
+  background-repeat: repeat-y;
+  background-position: 0 100%;
+}
+

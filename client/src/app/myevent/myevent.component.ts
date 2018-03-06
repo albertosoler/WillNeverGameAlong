@@ -12,16 +12,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class MyeventComponent implements OnInit {
 miseventos:any;
+evento={};
+
 
 
 
   constructor(public eventserv:EventService,private router:Router,private route: ActivatedRoute) { 
-    this.eventserv.getMyEvent().subscribe(soler=>this.miseventos = soler)
+    this.eventserv.getMyEvent().subscribe(soler=>this.miseventos = soler);
+
 
 }
 
   ngOnInit() {
     
 }
+joinEvent(evento){
+  this.eventserv.joinEvent(this.miseventos._id,evento).subscribe( m => {
+    console.log(m);
+    this.router.navigate(['/profile']);
+  });
+}
 
 }
+
+
+

@@ -18,6 +18,11 @@ import { AlleventsComponent } from './allevents/allevents.component';
 import { MyeventComponent } from './myevent/myevent.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailsEventComponent } from './details-event/details-event.component';
+import { FileSelectDirective } from "ng2-file-upload";
+import { AgmCoreModule } from '@agm/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 // import { AgmCoreModule } from '@agm/core';
@@ -40,18 +45,25 @@ import { DetailsEventComponent } from './details-event/details-event.component';
     NewEventComponent,
     AlleventsComponent,
     MyeventComponent,
-    DetailsEventComponent
+    DetailsEventComponent,
+    FileSelectDirective,
+    
 
  
  
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyAHAbQFOgzkGcZ7T-yEcIWMX45fwWjzDdQ",
+      libraries: ["places"]
+    }),
     BrowserModule,
     HttpModule,
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
     // AgmCoreModule.forRoot({
     //   apiKey: "AIzaSyD7cOx23S4UcF4ehuC6kC_yO8cdYQVnhy0",
     //   libraries: ["places"]

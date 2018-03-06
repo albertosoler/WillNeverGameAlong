@@ -11,13 +11,15 @@ export interface Evento{
   author:string,
   name:String,
   description:String,
+  direction:String,
   maxPart:Number,
   deporte: String,
   location: {
-    lat: String,
-    lng: String
+    lat: Number,
+    lng: Number
 },
   date:String,
+  time:String,
   img:string 
 }
 
@@ -56,6 +58,11 @@ getMyEvent():Observable<any>{
   .map((res)=>res.json())
   .catch(this.handleError);
 }
+get(id) {
+  return this.http.get(`${this.BASEURL}/event/join/${id}`)
+    .map((res) => res.json());
+}
+
 ///Unirme a un evento Funciona
 
 joinEvent(eventid,evento):Observable<any>{

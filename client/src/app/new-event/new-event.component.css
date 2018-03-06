@@ -1,3 +1,18 @@
 agm-map {
     height: 300px;
   }
+  .mapa{
+    width: 550px;
+    display: inline-block;
+
+  }
+  
+
+  
+
+.contain{
+  height: 100%;
+  width: 100%;
+}
+
+ 

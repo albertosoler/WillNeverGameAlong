@@ -8,13 +8,7 @@
                 <div class="card card-body">
                   
                     <form >
-                            <div *ngIf='!user.imgUrl'>
-                            <div class="form-group has-success">
-                            <img src="../{{user.imgUrl}}" alt="">
-                            <label for="usu-img">Profile picture:</label>
-                            <input class="form-control" id="usu-img" type="file" name="imgUrl">
-                            </div>
-                            </div>
+                            <!-- <div *ngIf='!user.imgUrl'> -->
                         <div class="form-group has-success">
                             <label> Username </label>
                             <input type="text" [(ngModel)]="user.username" class="form-control input-lg" name="username" placeholder="{{user.username}}"/>

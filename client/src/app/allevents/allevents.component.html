@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/profile']">My Events</a>
+          <a class="nav-link" [routerLink]="['/event/myshow']">My Events</a>
         </li>
       </ul>
   
@@ -58,6 +58,18 @@
 </select>
 <i class="fas fa-search"></i>
 
+<select type="text" [(ngModel)]="term1">
+    <option>2018-03-04</option>
+    <option>2018-03-05</option>
+    <option>2018-03-06</option>
+    <option>2018-03-07</option>
+    <option>2018-03-08</option>
+    <option>2018-03-15</option>
+    <option>Futbol Sala</option>
+    <option></option>
+  </select>
+  <i class="fas fa-search"></i>
+
 
 
 </div>
@@ -68,7 +80,7 @@
 <br>
 
 
-<div class="container"  *ngFor = "let event of eventos | filter:term">
+<div class="container"  *ngFor = "let event of eventos | filter:term | filter:term1">
   <div class="pepe" style="width:33%; float:left; display:block;">
 
      

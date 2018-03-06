@@ -1,3 +1,173 @@
-<div *ngFor="let myevent of miseventos" class="soler">
-  <p>{{myevent.deporte}}</p>
-  </div>
+
+
+
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+  
+    <div class="collapse navbar-collapse navbar-light bg-faded" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/event/allshow']">Events
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/event/myshow']">My Events</a>
+        </li>
+      </ul>
+  
+      <ul class="navbar-nav ml-auto ml-6 end-lg-0">
+  
+        
+  
+            <li class="nav-item active">
+         
+              <a   class="nav-link" [routerLink]="['/profile']"> Profile</a>
+            
+            </li>
+  
+          </ul>
+    
+      <form class="form-inline my-2 my-lg-0">
+      </form>
+    </div>
+  </nav>
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      
+        <p>Search for:</p>
+     
+
+<select type="text" [(ngModel)]="term">
+  <option>Futbol 11</option>
+  <option>Baloncesto</option>
+  <option>Futbol 7</option>
+  <option>Tenis</option>
+  <option>Padel</option>
+  <option>Baloncesto</option>
+  <option>Futbol Sala</option>
+  <option></option>
+</select>
+<i class="fas fa-search"></i>
+
+<select type="text" [(ngModel)]="term1">
+    <option>2018-03-04</option>
+    <option>2018-03-05</option>
+    <option>2018-03-06</option>
+    <option>2018-03-07</option>
+    <option>2018-03-08</option>
+    <option>2018-03-15</option>
+    <option>Futbol Sala</option>
+    <option></option>
+  </select>
+  <i class="fas fa-search"></i>
+
+
+
+</div>
+
+</div>
+</div>
+
+<br>
+
+
+<div *ngFor="let myevent of miseventos | filter:term | filter:term1" class="soler">
+  <div class="container">
+  <div class="pepe" style="width:33%; float:left; display:block;">
+
+     
+
+      
+          <img src="{{myevent.img}}" width="100%" height="150px">
+
+          <p>Deporte:{{myevent.deporte}}</p>
+       <p>Usuario:{{myevent.author.username}}</p>
+       <p>Participantes:{{myevent.participantes.length}}</p>
+       
+       <div *ngIf="myevent.deporte === 'Futbol Sala'">
+          <div *ngIf="myevent.participantes.length < myevent.maxPart">
+       <i class="fas fa-futbol" style="color:green"></i>
+      </div>
+      <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+          <i class="fas fa-futbol"></i>
+         </div>
+         </div>
+   
+     
+      <div *ngIf="myevent.deporte === 'Futbol 11' ">
+          <div *ngIf="myevent.participantes.length < myevent.maxPart">
+              <i class="fas fa-futbol" style="color:green"></i>
+             </div>
+             <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+                 <i class="fas fa-futbol"></i>
+                </div>
+                </div>
+
+      <div *ngIf="myevent.deporte === 'Futbol 7' ">
+          <div *ngIf="myevent.participantes.length < myevent.maxPart">
+              <i class="fas fa-futbol" style="color:green"></i>
+             </div>
+             <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+                 <i class="fas fa-futbol"></i>
+                </div>
+                </div>
+      <div *ngIf="myevent.deporte === 'Tenis' ">
+          <div *ngIf="myevent.participantes.length < myevent.maxPart">
+              <i class="fas fa-table-tennis" style="color:green"></i>
+             </div>
+             <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+                 <i class="fas fa-table-tennis"></i>
+                </div>
+                </div>
+      <div *ngIf="myevent.deporte == 'Baloncesto' ">
+          <div *ngIf="myevent.participantes.length < myevent.maxPart">
+              <i class="fas fa-basketball-ball" style="color:green"></i>
+             </div>
+             <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+                <i class="fas fa-basketball-ball"></i>
+                </div>
+                </div>
+                <div *ngIf="myevent.deporte == 'Padel' ">
+                    <div *ngIf="myevent.participantes.length < myevent.maxPart">
+                        <i class="fas fa-table-tennis" style="color:green"></i>
+                       </div>
+                       <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+                           <i class="fas fa-table-tennis"></i>
+                          </div>
+                          </div>
+      
+     
+      
+
+      
+
+
+      <div *ngIf="myevent.participantes.length < myevent.maxPart">
+       <a   class="nav-link" [routerLink]="['/event/join', myevent._id]">View details</a>
+
+    </div>
+      <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+          <p>Evento LLeno</p>
+         </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+

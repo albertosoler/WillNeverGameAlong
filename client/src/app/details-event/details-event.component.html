@@ -1,4 +1,13 @@
-<p>
-  details-event works!
-</p>
-<button (click)="joinEvent()">UNIRME</button>
+
+
+      
+
+
+        <agm-map [latitude]="eventos.location.lat" [longitude]="eventos.location.lng" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="eventos.location.lat" [longitude]="eventos.location.lng"></agm-marker>
+          </agm-map>
+    
+
+
+
+        <button (click)="joinEvent()">UNIRME</button>

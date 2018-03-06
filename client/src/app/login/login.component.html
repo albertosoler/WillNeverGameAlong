@@ -1,66 +1,43 @@
-<!-- <h1> Authentication Sample </h1>
-<form>
-  <h2> Login Form </h2>
-  <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
-
-  <button (click)="login()"> login </button>
-</form>
-<p class="error"> {{ error }} </p> -->
 
 
 
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center text-white mb-4">Bootstrap 4 Login Form</h2>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
 
-                    <!-- form card login -->
-                    <div class="card rounded-0">
-                        <div class="card-header">
-                            <h3 class="mb-0">Login</h3>
-                        </div>
-                        <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
-                                <div class="form-group">
-                                    <label> Username </label>
-                                    <input type="text" class="form-control form-control-lg rounded-0"[(ngModel)]="username" id="uname1" required="" name="username"/>
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label> Password </label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" [(ngModel)]="password" name="password" required="" autocomplete="new-password"/>
-                                    <div class="invalid-feedback">Enter your password too!</div>
-                                </div>
-                                <div>
-                                    <label class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input">
-                                      <span class="custom-control-indicator"></span>
-                                      <span class="custom-control-description small text-dark">Remember me on this computer</span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn btn-lg btn-primary btn-block" id="btnLogin" (click)="login()">Login</button>
-                            </form>
-                        </div>
-                        <!--/card-block-->
-                    </div>
-                    <!-- /form card login -->
+<body>
 
-                </div>
-
-
-            </div>
-            <!--/row-->
-
-        </div>
-        <!--/col-->
+    <input type="radio" checked id="toggle--login" name="toggle" class="ghost" />
+    <input type="radio" id="toggle--signup" name="toggle" class="ghost" />
+  
+    <img class="logo framed" src="https://www.tumblr.com/images/logo/logo_large.png?v=7ea0eb57dd627a95f82be5bde0c43d59" alt="Tumblr logo" />
+  
+    <form class="form form--login framed">
+      <input type="text" [(ngModel)]="username" id="uname1" required="" name="username" class="input input--top" />
+      <input type="password" id="pwd1" [(ngModel)]="password" name="password" required="" autocomplete="new-password" class="input" />
+      <input type="submit" (click)="login()" class="input input--submit" />
+      
+      <label for="toggle--signup" class="text text--small text--centered">New? <b>Sign up</b></label>
+    </form>
+    
+    <form class="form form--signup framed">
+      <h2 class="text text--centered text--omega">Join the other <b>152.6 million</b> blogs and share all that you love.</h2>
+  
+      <input type="email" placeholder="Email" class="input input--top" />
+      <input type="password" placeholder="Password" class="input" />
+      <input type="text" placeholder="Username" class="input" />
+      <input type="submit" value="Sign up" class="input input--submit" />
+      
+      <label for="toggle--login" class="text text--small text--centered">Not new? <b>Log in</b></label>
+    </form>
+  
+    <div class="legal">
+      <a class="text text--small text--border-right" href="javascript:;">Terms</a>
+      <a class="text text--small text--border-right" href="javascript:;">Privacy</a>
+      <a class="text text--small" href="javascript:;">Password help</a>
     </div>
-    <!--/row-->
-</div>
-<!--/container-->
+  
+    <div class="photo-cred">
+      <a class="text text--small" title="Check out their blog." href="http://cabinporn.com/post/125371354365/the-cabin-book-book-in-the-wild-21-in-the-us" target="_blank">Photo posted by <b>cabinporn</b></a>
+    </div>
+  
+    <div class="fullscreen-bg"></div>
 
+<body>

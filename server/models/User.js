@@ -9,9 +9,9 @@ const userSchema = new Schema({
     country:String,
     city:String,
    
-    imgUrl:{ 
+    image:{ 
       type: String, 
-      default: "../public/img/user-placeholder.png" }  
+      default: "https://tmpfilecdn.freelogodesign.org/850385c0-dd1f-4035-9a81-779c89fd6848.png " }  
   }, {
   timestamps: {
     createdAt: 'created_at',
