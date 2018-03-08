@@ -1,17 +1,7 @@
 
 
-
-
-
 <nav class="navbar navbar-toggleable-md navbar-light">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-  
-    <div class="collapse navbar-collapse navbar-light" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/event/allshow']">Events
             <span class="sr-only">(current)</span>
@@ -21,23 +11,18 @@
           <a class="nav-link" [routerLink]="['/event/myshow']">My Events</a>
         </li>
       </ul>
-  
-      <ul class="navbar-nav ml-auto ml-6 end-lg-0">
-  
-        
-  
-            <li class="nav-item active">
-         
-              <a   class="nav-link" [routerLink]="['/profile']"> Profile</a>
-            
-            </li>
-  
+   
+    <ul class="navbar-nav ml-auto ml-6 end-lg-0">
+
+      
+
+          <li class="nav-item active">
+       
+            <a   class="nav-link" [routerLink]="['/profile']"> <h5>Profile</h5></a>
+          
+          </li>
           </ul>
-    
-      <form class="form-inline my-2 my-lg-0">
-      </form>
-    </div>
-  </nav>
+</nav>
 
 
 
@@ -48,7 +33,7 @@
   <div class="row">
     <div class="col-sm">
       
-        <p>Search for:</p>
+        <p style="color:white">Search for:</p>
      
 
 <select type="text" [(ngModel)]="term">
@@ -73,7 +58,7 @@
     <option>Futbol Sala</option>
     <option></option>
   </select>
-  <i class="fas fa-search"></i>
+  <i class="fas fa-search" ></i>
 
 
 
@@ -151,8 +136,12 @@
                 </figure>
 
       <div *ngIf="myevent.participantes.length < myevent.maxPart">
-          <a   class="nav-link" [routerLink]="['/event/join', myevent._id]">View details</a>
+          <button type="button" class="btn btn-success" [routerLink]="['/event/join', myevent._id]">View details</button>
+         
          </div>
+         <div *ngIf="myevent.participantes.length >= myevent.maxPart">
+            <p>Evento LLeno</p>
+           </div>
               </div>
             </div>
           </div>
