@@ -25,7 +25,7 @@
     width: 100%;
     height: 50px;
     background:#0D2E4F;
-    border-bottom: medium double white
+
 }
   .secondpart{
 margin-bottom: 100px;
@@ -47,7 +47,7 @@ margin-bottom: 100px;
     text-align: center;
 }
 .navbar-light .navbar-nav .nav-link{
-  color:#c5a124
+  color:#c5a124;
 }
 
 
@@ -120,6 +120,7 @@ body {
   -webkit-transform: rotateY(180deg);
   opacity: 0;
 }
+
 h2 {
   font-size: 32px;
   font-weight: 600;

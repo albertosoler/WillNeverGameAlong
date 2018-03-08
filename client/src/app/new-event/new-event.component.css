@@ -1,5 +1,5 @@
 html{
-  height: 200px;
+  height: 170px;
 }
 
 agm-map {
@@ -7,9 +7,9 @@ agm-map {
     
   }
   .mapa{
-    width: 650px;
+    width: 750px;
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 90px;
     margin-top: 50px
 
   }
@@ -17,7 +17,9 @@ agm-map {
 
   
 
-  
+  h1{
+    color: white;
+  }
 
 .contain{
   height: 100%;
@@ -45,7 +47,7 @@ body {
   max-width: 300px;
    margin: 200px auto 0;
 
-  margin-left: 200px;
+  margin-left: 180px;
 }
 
 h2 {

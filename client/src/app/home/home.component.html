@@ -6,8 +6,10 @@
     <input type="radio" checked id="toggle--login" name="toggle" class="ghost" />
     <input type="radio" id="toggle--signup" name="toggle" class="ghost" />
 
-<img class="logo framed" src="https://vignette.wikia.nocookie.net/clubpenguin/images/3/33/Clothing_Items_5445.png/revision/latest?cb=20140619160742"alt="Tumblr logo" /> 
-
+<img class="logo framed" src="https://i.imgur.com/AMXnEmv.png"alt="Tumblr logo" /> 
+    <div class="texto">
+      <h1>WillNeverGameAlong</h1>
+    </div>
     <form class="form form--login framed">
       <input type="text" [(ngModel)]="username" id="uname1" required="" name="username" class="input input--top" />
       <input type="password" id="pwd1" [(ngModel)]="password" name="password" required="" autocomplete="new-password" class="input"
@@ -49,7 +51,7 @@
       <button [routerLink]="['/profile']" class="btn striped-shadow white">
         <span>Profile</span>
       </button>
-      <button (click)="logout()" class="btn striped-shadow white">
+      <button (click)="logout()" class="btn striped-shadow dark">
         <span>Logout</span>
       </button>
     </div>
