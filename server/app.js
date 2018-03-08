@@ -12,6 +12,7 @@ const cors = require('cors');
 const auth = require('./routes/auth');
 const profile = require ('./routes/profile.js');
 const evento = require ('./routes/event.js');
+const dotenv = require('dotenv').load();
 
 const app = express();
 
@@ -63,6 +64,8 @@ app.use((req,res,next)=>{
 app.use('/api/auth', auth);
 app.use('/api/profile', profile);
 app.use('/api/evento', evento)
+
+app.use(function (req, res) { res.sendFile(__dirname + "/public/index.html") });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

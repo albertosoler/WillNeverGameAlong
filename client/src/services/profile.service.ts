@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { environment }  from '../environments/environment';
+import { environment }  from '../environments/environment'
 
 
 export interface User{
@@ -34,19 +34,19 @@ handleError(e) {
 }
 
 getUserInfo():Observable<any>{
-  return this.http.get(`${this.BASEURL}/profile`, this.options)
+  return this.http.get(`${this.BASEURL}/api/profile/profile`, this.options)
   .map((res) => res.json())
   .catch(this.handleError);
 }
 
 edit(user,userid):Observable<any> {
   console.log(user);
-  return this.http.put(`${this.BASEURL}/edit/${userid}`,user,this.options)
+  return this.http.put(`${this.BASEURL}/api/profile/edit/${userid}`,user,this.options)
     .map((res) => res.json())
     .catch(this.handleError);
 }
 remove(userid) {
-  return this.http.post(`${this.BASEURL}/delete/${userid}`,this.options)
+  return this.http.post(`${this.BASEURL}/api/profile/delete/${userid}`,this.options)
     .map((res) => res.json());
 }
 

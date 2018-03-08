@@ -41,7 +41,7 @@ handleError(e) {
 ///Crear evento Funciona
 createEvent(evento:Evento):Observable<Evento>{
   console.log("entroooo");
-  return this.http.post(`${this.BASEURL}/event/newEvent`, evento, this.options)
+  return this.http.post(`${this.BASEURL}/api/evento/event/newEvent`, evento, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -49,19 +49,19 @@ createEvent(evento:Evento):Observable<Evento>{
 ///Mostrar todos los eventos funciona
 getAllEvent():Observable<any>{
   console.log("eventos entrooo todos")
-  return this.http.get(`${this.BASEURL}/event/allshow`, this.options)
+  return this.http.get(`${this.BASEURL}/api/evento/event/allshow`, this.options)
   .map((res) => res.json())
   .catch(this.handleError);
 }
 ///Mostrar mis eventos
 getMyEvent():Observable<any>{
   console.log("entro en servicio de mis eventos")
-  return this.http.get(`${this.BASEURL}/event/myshow`, this.options)
+  return this.http.get(`${this.BASEURL}/api/evento/event/myshow`, this.options)
   .map((res)=>res.json())
   .catch(this.handleError);
 }
 get(id) {
-  return this.http.get(`${this.BASEURL}/event/join/${id}`)
+  return this.http.get(`${this.BASEURL}/api/evento/event/join/${id}`)
     .map((res) => res.json());
 }
 
@@ -69,13 +69,13 @@ get(id) {
 
 joinEvent(eventid,evento):Observable<any>{
   console.log("entro servicio")
-  return this.http.post(`${this.BASEURL}/event/join/${eventid}`,evento, this.options)
+  return this.http.post(`${this.BASEURL}/api/evento/event/join/${eventid}`,evento, this.options)
   .map((res) => res.json())
   .catch(this.handleError);
 }
 
 editEvent(evento,eventid):Observable<any> {
-  return this.http.put(`${this.BASEURL}/event/edit/${eventid}`,evento,this.options)
+  return this.http.put(`${this.BASEURL}/api/evento/event/edit/${eventid}`,evento,this.options)
     .map((res) => res.json())
     .catch(this.handleError);
 }
@@ -83,13 +83,13 @@ editEvent(evento,eventid):Observable<any> {
 
 remove(eventid) {
   console.log("entraaaa servicio remove")
-  return this.http.post(`${this.BASEURL}/event/delete/${eventid}`,this.options)
+  return this.http.post(`${this.BASEURL}/api/evento/event/delete/${eventid}`,this.options)
     .map((res) => res.json());
     
 }
 removePart(evento,eventid) {
   console.log("entra al servicio borrar part")
-  return this.http.put(`${this.BASEURL}/event/deletepart/${eventid}`,evento,this.options)
+  return this.http.put(`${this.BASEURL}/api/evento/event/deletepart/${eventid}`,evento,this.options)
   .map((res) =>res.json())
   .catch(this.handleError);
 }
