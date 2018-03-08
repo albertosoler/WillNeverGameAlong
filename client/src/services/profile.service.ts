@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment }  from '../environments/environment';
-const  BASEURL:string= environment.BASEURL;
+
 
 export interface User{
   _id:string,
