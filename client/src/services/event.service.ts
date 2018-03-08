@@ -4,6 +4,8 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../environments/environment';
+const  BASEURL:string= environment.BASEURL;
 
 
 export interface Evento{
@@ -26,7 +28,7 @@ export interface Evento{
 
 @Injectable()
 export class EventService {
-  BASEURL:string = "http://localhost:3000/api/evento"
+  BASEURL:string= environment.BASEURL;
   options:object = {withCredentials:true};
   constructor(private http: Http) {
 }

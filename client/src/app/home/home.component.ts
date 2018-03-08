@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   email:string;
   city:string;
   country:string;
-  constructor(private session:SessionService, private router:Router) { }
+  constructor(public session:SessionService, private router:Router) { }
 
   ngOnInit() {
   }

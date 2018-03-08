@@ -18,7 +18,6 @@ import { AlleventsComponent } from './allevents/allevents.component';
 import { MyeventComponent } from './myevent/myevent.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailsEventComponent } from './details-event/details-event.component';
-import { FileSelectDirective } from "ng2-file-upload";
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -47,7 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlleventsComponent,
     MyeventComponent,
     DetailsEventComponent,
-    FileSelectDirective
+ 
     
     
 

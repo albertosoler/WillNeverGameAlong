@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../environments/environment';
+const  BASEURL:string= environment.BASEURL;
 
 export interface User{
   _id:string,
@@ -20,7 +22,7 @@ export interface User{
 
 @Injectable()
 export class ProfileService {
-  BASEURL:string = "http://localhost:3000/api/profile"
+  BASEURL:string= environment.BASEURL;
   options:object = {withCredentials:true};
   constructor(private http: Http) {
 }
