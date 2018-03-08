@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import {ProfileService} from "../../services/profile.service"
-
+import {ProfileService} from "../../services/profile.service";
+// import { FileUploader } from "ng2-file-upload";
+// const URl ='http://localhost:3000/api/profile//edit/:id';
 @Component({
   selector: 'app-single-edit',
   templateUrl: './single-edit.component.html',
   styleUrls: ['./single-edit.component.css']
 })
 export class SingleEditComponent implements OnInit {
-
+  // uploader: FileUploader = new FileUploader({
+  //    url: URl  });
 
   user={};
   user_id:any;
@@ -30,6 +32,7 @@ export class SingleEditComponent implements OnInit {
         this.router.navigate(['/profile']);
       });
   }
+  
 
   deletePhone(){
     this.service.remove(this.user_id).subscribe( m => {

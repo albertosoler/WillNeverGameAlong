@@ -1,19 +1,4 @@
-<!-- <h1> Signup </h1>
-<form (ngSubmit)="signup(myForm)" #myForm="ngForm">
-  <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
-  <label> email </label>
-  <input type="text" [(ngModel)]="email" name="email"/>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
-  <label> Country </label>
-  <input type="text" [(ngModel)]="country" name="country"/>
-  <label> City </label>
-  <input type="text" [(ngModel)]="city" name="city"/>
-
-<button (click)="signup()" >Submit</button>
-</form>
-<p class="error"> {{ error }} </p> -->
+<!-- 
 
 
 
@@ -29,36 +14,36 @@
                     <form (ngSubmit)="signup(myForm)" #myForm="ngForm">   
                         <div class="form-group has-success">
                             <label> Username </label>
-                            <input type="text" [(ngModel)]="username" class="form-control input-lg" name="username" placeholder="Username"/>
+                            <input type="text" [(ngModel)]="newPhone.username" class="form-control input-lg" name="username" placeholder="Username"/>
                         </div>
 
                         <div class="form-group has-success">
                             <label> Email </label>
-                            <input type="text" [(ngModel)]="email" class="form-control input-lg" name="email" placeholder="Email"/>
+                            <input type="text" [(ngModel)]="newPhone.email" class="form-control input-lg" name="email" placeholder="Email"/>
                         </div>
                       
                         
                         <div class="form-group has-success">
                             <label> Password </label>
-                            <input type="password" [(ngModel)]="password" name="password" class="form-control input-lg" placeholder="Password"/>
+                            <input type="password" [(ngModel)]="newPhone.password" name="password" class="form-control input-lg" placeholder="Password"/>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label> Country </label>
-                            <input type="text" [(ngModel)]="country" name="country" class="form-control input-lg" placeholder="Country"/>
+                            <input type="text" [(ngModel)]="newPhone.country" name="country" class="form-control input-lg" placeholder="Country"/>
                         </div>
 
                         <div class="form-group has-success">
-                            <label> City </label>
-                               <input type="text" [(ngModel)]="city" name="city" class="form-control input-lg" placeholder="City"/>
+                            <label> Image </label>
+                            <input class="form-control input-lg"  type="file" name="file" ng2FileSelect [uploader]="uploader" />
                         </div>
                         
                   
-                        <button class="btn btn-lg btn-primary btn-block" (click)="signup()" >Submit</button>
+                        <button class="btn btn-lg btn-primary btn-block" (click)="signup(myForm)" >Submit</button>
                         <!-- <button  (click)="signup()" class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit"> -->
-                      </form>
+                      <!-- </form>
                 </div>
         </div>
     </div>
 </div>
-<p class="error"> {{ error }} </p>
+<p class="error"> {{ error }} </p>  -->

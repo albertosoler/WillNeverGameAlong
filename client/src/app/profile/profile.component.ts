@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
  
   constructor(public service:ProfileService,public session:SessionService,  private router:Router) {
     this.service.getUserInfo().subscribe(list => this.nameId = list.user);
-    console.log(this.nameId)
 
   }
 

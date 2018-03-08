@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 // import { AgmCoreModule } from '@agm/core';
 // import { ReactiveFormsModule } from '@angular/forms';
 
@@ -46,7 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlleventsComponent,
     MyeventComponent,
     DetailsEventComponent,
-    FileSelectDirective,
+    FileSelectDirective
+    
     
 
  
@@ -63,7 +65,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     RouterModule.forRoot(routes),
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+ 
     // AgmCoreModule.forRoot({
     //   apiKey: "AIzaSyD7cOx23S4UcF4ehuC6kC_yO8cdYQVnhy0",
     //   libraries: ["places"]

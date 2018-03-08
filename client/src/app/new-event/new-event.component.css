@@ -1,11 +1,20 @@
+html{
+  height: 200px;
+}
+
 agm-map {
-    height: 300px;
+    height: 600px;
+    
   }
   .mapa{
-    width: 550px;
+    width: 650px;
     display: inline-block;
+    margin-left: 50px;
+    margin-top: 50px
 
   }
+/*#2f3c49*/
+
   
 
   
@@ -14,5 +23,83 @@ agm-map {
   height: 100%;
   width: 100%;
 }
+
+
+/* 
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+  width: 100%;
+  height: 500%;
+  background-color: #0D2E4F;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 322;
+  color: darkgray;
+}
+
+/*********** Form CSS ***********/
+#centered {
+  max-width: 300px;
+   margin: 200px auto 0;
+
+  margin-left: 200px;
+}
+
+h2 {
+  font-family: 'Qwigley', cursive;
+  font-size: 7em;
+  color: #f3f4f6;
+  text-shadow: 1px 3px black;
+}
+
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  width: 100%;
+  margin: 8px 0;
+  text-indent: 1em;
+  padding: 10px 0;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+
+input[type="submit"] {
+  background-color: #4d90fe;
+  color: white;
+  border: 1px solid #3079ed;
+}
+
+input[type="submit"]:hover {
+  background-color: #4d9aff;
+  color: white;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 0.75em;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color:inherit;
+}
+
+a:hover {
+  color: #4d9aff;
+}
+
+i {
+  margin: 5px;
+}
+
+
+
 
  

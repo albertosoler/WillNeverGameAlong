@@ -61,6 +61,8 @@ router.get('/logout', (req, res, next) => {
   res.status(200).json({ message: 'Success' });
 });
 
+
+
 router.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated()) return res.status(200).json(req.user);
   res.status(403).json({ message: 'Unauthorized' });

@@ -1,13 +1,36 @@
 
 
-      
 
+          
+            <agm-map [latitude]="eventos.location.lat" [longitude]="eventos.location.lng" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="eventos.location.lat" [longitude]="eventos.location.lng">
 
-        <agm-map [latitude]="eventos.location.lat" [longitude]="eventos.location.lng" [scrollwheel]="false" [zoom]="zoom">
-            <agm-marker [latitude]="eventos.location.lat" [longitude]="eventos.location.lng"></agm-marker>
+            </agm-marker>
           </agm-map>
-    
+   
+             
+          <h1>{{eventos.deporte}}</h1>
+          <h1>{{eventos.participantes.length}} / {{eventos.maxPart}}</h1>
+          <h1>{{eventos.time}}</h1>
+          <h1>{{eventos.date}}</h1>
+          <h1>{{eventos.description}}</h1>
+          <h1>{{eventos.author.username}}</h1>
+   
+
+
+          
+          <div *ngIf="eventos.author._id === user._id">
+              <button (click)="remove()">DELETE</button>
+          </div> 
+          
+           <div *ngIf="bool">
+              <button (click)="joinEvent()">Unirse</button>
+           </div>
+           <button (click)="removePart()">Borrar persona</button>
 
 
 
-        <button (click)="joinEvent()">UNIRME</button>
+
+        
+
+                 

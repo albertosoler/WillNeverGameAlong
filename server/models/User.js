@@ -9,9 +9,8 @@ const userSchema = new Schema({
     country:String,
     city:String,
    
-    image:{ 
-      type: String, 
-      default: "https://tmpfilecdn.freelogodesign.org/850385c0-dd1f-4035-9a81-779c89fd6848.png " }  
+    image:String,
+     
   }, {
   timestamps: {
     createdAt: 'created_at',

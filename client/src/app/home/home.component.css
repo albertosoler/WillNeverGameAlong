@@ -41,6 +41,10 @@ html, body {
   margin-top: -4.5em;
   transition: 1s ease-in-out;
 }
+.desc{
+  text-align: center;
+ 
+}
 
 .input {
   -moz-box-sizing: border-box;
@@ -63,7 +67,7 @@ html, body {
     border-top: 0;
   }
   .input--submit {
-    background-color:#53b948;
+    background-color: #c5a124;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -116,9 +120,16 @@ html, body {
   position: fixed;
   z-index: -1;
   top:0; right:0; bottom:0; left:0;
-  background: url(https://sccoaches.org/wp-content/uploads/2015/01/multi-sport-background.jpg) center;
+  background:#0D2E4F center;
   background-size: cover;
 }
+
+.btn {
+margin-top:25%;
+}
+
+
+
 
 #toggle--login:checked ~ .form--signup { left:200%; visibility:hidden; }
 #toggle--signup:checked ~ .form--login { left:-100%; visibility:hidden; }
@@ -165,17 +176,17 @@ button {
   border-color: #fff;
   color: #fff;
   /* background: #5d9cc3; */
-  background:#53b948;
+  background:#c5a124;
 }
 
 .btn.striped-shadow.blue span {
   border-color: #4183D7;
-  background:#77bfa1;
+  background:#c5a124;
   color: #4183D7;
 }
 .btn.striped-shadow.dark span {
   border-color: #393939;
-  background: #77bfa1;
+  background:#c5a124;
   color: #393939;
 }
 
@@ -209,8 +220,8 @@ button.btn.striped-shadow.white:after, button.btn.striped-shadow.white:before {
     135deg,
     transparent 0,
     transparent 5px,
-    #fff 5px,
-    #fff 10px,
+    #c5a124 5px,
+    #c5a124 10px,
     transparent 10px
   );
 }

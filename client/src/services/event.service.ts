@@ -80,8 +80,16 @@ editEvent(evento,eventid):Observable<any> {
 
 
 remove(eventid) {
+  console.log("entraaaa servicio remove")
   return this.http.post(`${this.BASEURL}/event/delete/${eventid}`,this.options)
     .map((res) => res.json());
+    
+}
+removePart(evento,eventid) {
+  console.log("entra al servicio borrar part")
+  return this.http.put(`${this.BASEURL}/event/deletepart/${eventid}`,evento,this.options)
+  .map((res) =>res.json())
+  .catch(this.handleError);
 }
 
 

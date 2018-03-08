@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -26,22 +26,33 @@ export class SessionService {
   }
 
   private user:User;
+  private userEvent:EventEmitter<any>=new EventEmitter()
 
   getUser(){
     return this.user;
   }
+
+  getUserEvent(){
+    return this.userEvent;
+  }
+
+
+
   private configureUser(set=false){
     return (user) => {
       if(set){
         this.user = user;
+        this.userEvent.emit(user);
         console.log(`Setting user, welcome ${this.user.username}`)
       }else{
         console.log(`bye bye ${this.user.username}`)
         this.user = null
+        this.userEvent.emit(null);
       }
       return user;
     }
   }
+
 
   handleError(e) {
     console.log(e);

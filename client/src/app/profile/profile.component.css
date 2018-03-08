@@ -4,12 +4,12 @@
     color :yellowgreen;
 }
 #newEvent{
-
+    
     text-align: center;
     text-decoration:none;
 }
 #newEvent1{
-
+  
     text-align: center;
     text-decoration:none;
 }
@@ -20,12 +20,22 @@
     text-decoration: none;
 
 }
-
-.navbar-toggleable-md{
+.navbar-toggleable-md .navbar-collapse
+{
     width: 100%;
     height: 50px;
+    background:#0D2E4F;
+    border-bottom: medium double white
+}
+  .secondpart{
+margin-bottom: 100px;
 
-} 
+  }
+
+
+.bg-faded{
+  background-color:#0D2E4F;;
+}
 .el{
     text-align: center;
 
@@ -35,6 +45,9 @@
 }
 .information{
     text-align: center;
+}
+.navbar-light .navbar-nav .nav-link{
+  color:#c5a124
 }
 
 
@@ -47,12 +60,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:900,300);
 body {
-  background-color: #f0f0f0;
-  font-family: roboto;
+  background-color:#0D2E4F;;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .containerp {
-  width: 400px;
-  margin: 120px auto 120px;
+  width: 800px;
+  margin: 100px auto 100px;
   background-color: #fff;
   padding: 0 20px 20px;
   border-radius: 6px;
@@ -62,6 +75,7 @@ body {
   -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
+  
 }
 .containerp:hover .avatar-flip {
   transform: rotateY(180deg);
@@ -160,5 +174,11 @@ p {
   
   .imagebox:hover .imagebox-desc {
     padding-bottom: 10%;
+  }
+
+  .soler21{
+    width: 100%;
+    height: 100%;
+    background:#0D2E4F;
   }
   

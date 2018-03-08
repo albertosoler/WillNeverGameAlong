@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (user) => {
           this.router.navigate(['/profile'])
-          console.log(user)
+         
         },
         (err) => this.error = err
       );
