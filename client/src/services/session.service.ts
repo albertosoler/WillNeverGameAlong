@@ -13,7 +13,8 @@ interface User {
     email:string,
     age:number,
     country:String,
-    city:String
+    city:String,
+    image:String
  
   }
 

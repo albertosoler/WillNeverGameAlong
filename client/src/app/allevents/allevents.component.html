@@ -1,26 +1,28 @@
 <nav class="navbar navbar-toggleable-md navbar-light">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/event/allshow']">Events
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/event/myshow']">My Events</a>
-        </li>
-      </ul>
-   
-      <ul class="navbar-nav ml-auto ml-6 end-lg-0">
-  
-        
-  
-            <li class="nav-item active">
-         
-              <a   class="nav-link" [routerLink]="['/profile']"> <h5>Profile</h5></a>
-            
-            </li>
-            </ul>
-  </nav>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+      <a class="nav-link" style="color:#c5a124" [routerLink]="['/event/allshow']">Events
+        <span class="sr-only">(current)</span>
+      </a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" style="color:#c5a124" [routerLink]="['/event/myshow']">My Events</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto ml-6 end-lg-0">
+
+
+
+    <li class="nav-item active">
+
+      <a class="nav-link" [routerLink]="['/profile']">
+        <h5>Profile</h5>
+      </a>
+
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -30,119 +32,114 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      
-        <p style="color:white">Search for:</p>
-     
 
-<select type="text" [(ngModel)]="term">
-  <option>Futbol 11</option>
-  <option>Baloncesto</option>
-  <option>Futbol 7</option>
-  <option>Tenis</option>
-  <option>Padel</option>
-  <option>Baloncesto</option>
-  <option>Futbol Sala</option>
-  <option></option>
-</select>
-<i class="fas fa-search"></i>
-
-<select type="text" [(ngModel)]="term1">
-    <option>2018-03-04</option>
-    <option>2018-03-05</option>
-    <option>2018-03-06</option>
-    <option>2018-03-07</option>
-    <option>2018-03-08</option>
-    <option>2018-03-15</option>
-    <option>Futbol Sala</option>
-    <option></option>
-  </select>
-  <i class="fas fa-search"></i>
+      <p style="color:white">Search for:</p>
 
 
+      <select type="text" [(ngModel)]="term">
+        <option>Futbol 11</option>
+        <option>Baloncesto</option>
+        <option>Futbol 7</option>
+        <option>Tenis</option>
+        <option>Padel</option>
+        <option>Baloncesto</option>
+        <option>Futbol Sala</option>
+        <option></option>
+      </select>
+      <i class="fas fa-search"></i>
 
-</div>
+      <select type="text" [(ngModel)]="term1">
+        <option>2018-03-04</option>
+        <option>2018-03-05</option>
+        <option>2018-03-06</option>
+        <option>2018-03-07</option>
+        <option>2018-03-08</option>
+        <option>2018-03-15</option>
+        <option>Futbol Sala</option>
+        <option></option>
+      </select>
+      <i class="fas fa-search"></i>
 
-</div>
+
+
+    </div>
+
+  </div>
 </div>
 
 <br>
 
 
-<div class="container" >
-        <div class="row">
-            <div class=" col-md-3 " *ngFor = "let event of eventos | filter:term | filter:term1">
-              <div class="card profile-card">
-                <figure>
-                  <img src="{{event.img}}" class="img-fluid img-profile" alt="Card image" >
-                </figure>
-                <div class="card-block text-xs-center">
-                  <p class="h4 card-title font-weight-bold">{{event.deporte}}</p>
-                  <p class="h6 card-subtitle text-muted">Participantes:{{event.participantes.length}}</p><br>
-                </div>
-                <figure>
-                    <div *ngIf="event.deporte === 'Futbol Sala'">
-                        <div *ngIf="event.participantes.length < event.maxPart">
-                     <i class="fas fa-futbol" style="color:green"></i>
-                    </div>
-                    <div *ngIf="event.participantes.length >= event.maxPart">
-                        <i class="fas fa-futbol"></i>
-                       </div>
-                       </div>
-                 
-                   
-                    <div *ngIf="event.deporte === 'Futbol 11' ">
-                        <div *ngIf="event.participantes.length < event.maxPart">
-                            <i class="fas fa-futbol" style="color:green"></i>
-                           </div>
-                           <div *ngIf="event.participantes.length >= event.maxPart">
-                               <i class="fas fa-futbol"></i>
-                              </div>
-                              </div>
-              
-                    <div *ngIf="event.deporte === 'Futbol 7' ">
-                        <div *ngIf="event.participantes.length < event.maxPart">
-                            <i class="fas fa-futbol" style="color:green"></i>
-                           </div>
-                           <div *ngIf="event.participantes.length >= event.maxPart">
-                               <i class="fas fa-futbol"></i>
-                              </div>
-                              </div>
-                    <div *ngIf="event.deporte === 'Tenis' ">
-                        <div *ngIf="event.participantes.length < event.maxPart">
-                            <i class="fas fa-table-tennis" style="color:green"></i>
-                           </div>
-                           <div *ngIf="event.participantes.length >= event.maxPart">
-                               <i class="fas fa-table-tennis"></i>
-                              </div>
-                              </div>
-                    <div *ngIf="event.deporte == 'Baloncesto' ">
-                        <div *ngIf="event.participantes.length < event.maxPart">
-                            <i class="fas fa-basketball-ball" style="color:green"></i>
-                           </div>
-                           <div *ngIf="event.participantes.length >= event.maxPart">
-                              <i class="fas fa-basketball-ball"></i>
-                              </div>
-                              </div>
-                              <div *ngIf="event.deporte == 'Padel' ">
-                                  <div *ngIf="event.participantes.length < event.maxPart">
-                                      <i class="fas fa-table-tennis" style="color:green"></i>
-                                     </div>
-                                     <div *ngIf="event.participantes.length >= event.maxPart">
-                                         <i class="fas fa-table-tennis"></i>
-                                        </div>
-                                        </div>
-                </figure>
-
-      <div *ngIf="event.participantes.length < event.maxPart">
-          <button type="button" class="btn btn-success" [routerLink]="['/event/join', event._id]">View details</button>
-         </div>
-              </div>
+<div class="container">
+  <div class="row">
+    <div class=" col-md-3 " *ngFor="let event of eventos | filter:term | filter:term1">
+      <div class="card profile-card">
+        <figure>
+          <img src="{{event.img}}" class="img-fluid img-profile" alt="Card image">
+        </figure>
+        <div class="card-block text-xs-center">
+          <p class="h4 card-title font-weight-bold">{{event.deporte}}</p>
+          <p class="h6 card-subtitle text-muted">Participantes:{{event.participantes.length}}</p>
+          <br>
+        </div>
+        <figure>
+          <div *ngIf="event.deporte === 'Futbol Sala'">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-futbol" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-futbol"></i>
             </div>
           </div>
+
+
+          <div *ngIf="event.deporte === 'Futbol 11' ">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-futbol" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-futbol"></i>
+            </div>
+          </div>
+
+          <div *ngIf="event.deporte === 'Futbol 7' ">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-futbol" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-futbol"></i>
+            </div>
+          </div>
+          <div *ngIf="event.deporte === 'Tenis' ">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-table-tennis" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-table-tennis"></i>
+            </div>
+          </div>
+          <div *ngIf="event.deporte == 'Baloncesto' ">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-basketball-ball" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-basketball-ball"></i>
+            </div>
+          </div>
+          <div *ngIf="event.deporte == 'Padel' ">
+            <div *ngIf="event.participantes.length < event.maxPart">
+              <i class="fas fa-table-tennis" style="color:green"></i>
+            </div>
+            <div *ngIf="event.participantes.length >= event.maxPart">
+              <i class="fas fa-table-tennis"></i>
+            </div>
+          </div>
+        </figure>
+
+        <div *ngIf="event.participantes.length < event.maxPart">
+          <button type="button" class="btn btn-success" [routerLink]="['/event/join', event._id]">View details</button>
         </div>
-    
-        
-       
-
-
-      
+      </div>
+    </div>
+  </div>
+</div>

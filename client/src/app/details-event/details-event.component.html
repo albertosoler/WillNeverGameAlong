@@ -1,37 +1,83 @@
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+
+
+				<agm-map [latitude]="eventos.location.lat" [longitude]="eventos.location.lng" [scrollwheel]="false" [zoom]="zoom">
+					<agm-marker [latitude]="eventos.location.lat" [longitude]="eventos.location.lng">
+
+					</agm-marker>
+				</agm-map>
+			</div>
+
+
+	
+						<div class="col-md-6">
 
 
 
-          
-            <agm-map [latitude]="eventos.location.lat" [longitude]="eventos.location.lng" [scrollwheel]="false" [zoom]="zoom">
-            <agm-marker [latitude]="eventos.location.lat" [longitude]="eventos.location.lng">
+							<div class="card profile-card">
+								<figure>
+									<img src="{{eventos.img}}" class="img-fluid img-profile" alt="Card image">
+								</figure>
+								<div class="card-block text-xs-center">
+									<h1 class="h6 card-subtitle text-muted">Deporte: {{eventos.deporte}}</h1>
+									<h1 class="h6 card-subtitle text-muted ">Participantes:{{eventos.participantes.length}}/{{eventos.maxPart}}</h1>
+									<h1 class="h6 card-subtitle text-muted ">Creado por: {{eventos.author.username}}</h1>
+									<h1 class="h6 card-subtitle text-muted ">Hora: {{eventos.time}}</h1>
 
-            </agm-marker>
-          </agm-map>
-   
-             
-          <h1>{{eventos.deporte}}</h1>
-          <h1>{{eventos.participantes.length}} / {{eventos.maxPart}}</h1>
-          <h1>{{eventos.time}}</h1>
-          <h1>{{eventos.date}}</h1>
-          <h1>{{eventos.description}}</h1>
-          <h1>{{eventos.author.username}}</h1>
-   
+									<br>
+								</div>
+								
 
-
-          
-          <div *ngIf="eventos.author._id === user._id">
-              <button (click)="remove()">DELETE</button>
-          </div> 
-          
-           <div *ngIf="bool">
-              <button (click)="joinEvent()">Unirse</button>
-           </div>
-           <div *ngIf="!bool">
-           <button (click)="removePart()">Borrar persona</button>
-
-        </div>
+								<div *ngIf="eventos.participantes.length >= eventos.maxPart">
+									<p>Evento LLeno</p>
+								</div>
+							</div>
 
 
-        
+					</div>
+				</div>
+			</div>
 
-                 
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+
+
+				<div *ngIf="!bool">
+					<div class="button-6 ger">
+						<div class="eff-6"></div>
+						<a (click)="removePart()">Borrarme del evento</a>
+					</div>
+				</div>
+
+				<div *ngIf="bool">
+					<div class="button-7 ger">
+						<div class="eff-7"></div>
+						<a (click)="joinEvent()">Unirse a Evento</a>
+
+					</div>
+				</div>
+
+
+
+				<div *ngIf="eventos.author._id === user._id">
+					<div class="button-8 ger">
+						<div class="eff-8"></div>
+						<a (click)="remove()"> Borrar Evento</a>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+
+</body>

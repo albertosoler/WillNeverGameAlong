@@ -14,6 +14,7 @@ let loginPromise = (req, user) => {
 /* SIGNUP */
 router.post('/signup', (req, res, next) => {
   const {username,password,email,city,country} = req.body;
+  
   if (!username || !password || !email) return res.status(400).json({ message: 'Provide username, password and email' })
   else if ((city === "")||(country === "")) return res.status(400).json({ message: 'Provide city and country' })
   User.findOne({ username }, '_id')
@@ -27,7 +28,7 @@ router.post('/signup', (req, res, next) => {
         email,
         city,
         country,
-   
+    
 
         
       });

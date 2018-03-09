@@ -9,7 +9,10 @@ const userSchema = new Schema({
     country:String,
     city:String,
    
-    image:String,
+    image:{ 
+          type: String, 
+          default: "http://fondosparacelulares.net/wp-content/uploads/2014/08/fondos-de-F%C3%BAtbol-en-hd3.jpg" }  
+        
      
   }, {
   timestamps: {
