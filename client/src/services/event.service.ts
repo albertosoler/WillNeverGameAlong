@@ -18,11 +18,17 @@ export interface Evento{
   deporte: String,
   location: {
     lat: Number,
-    lng: Number
+    lng: Number,
+    ciudad:String,
+    calle:String,
+    comunidad:String
 },
+ciudad:any;
+  // direccion:{
+  //   ciudad:String
+  // },
   date:String,
   time:String,
-  img:string 
 }
 
 

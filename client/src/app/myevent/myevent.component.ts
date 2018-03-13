@@ -21,10 +21,14 @@ evento={};
     this.eventserv.getMyEvent().subscribe(soler=>this.miseventos = soler);
 
 
+
 }
 
   ngOnInit() {
-    
+  
+
+
+   
 }
 joinEvent(evento){
   this.eventserv.joinEvent(this.miseventos._id,evento).subscribe( m => {

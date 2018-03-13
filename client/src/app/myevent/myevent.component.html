@@ -71,14 +71,14 @@
 
 <div class="container" >
         <div class="row">
-            <div class=" col-md-3 " *ngFor = "let myevent of miseventos | filter:term | filter:term1">
+            <div class=" col-md-3 " *ngFor = "let myevent of miseventos | filter:term | filter:term1 let i=index">
               <div class="card profile-card">
                 <figure>
                   <img src="{{myevent.img}}" class="img-fluid img-profile" alt="Card image" >
                 </figure>
                 <div class="card-block text-xs-center">
-                  <p class="h4 card-title font-weight-bold">{{myevent.deporte}}</p>
-                  <p class="h6 card-subtitle text-muted">Participantes:{{myevent.participantes.length}}</p><br>
+                  <p class="h4 card-title font-weight-bold">{{myevent.deporte}}</p><br>
+                  <p class="h6 card-subtitle text-muted">Participantes:{{myevent.participantes.length}}</p>
                 </div>
                 <figure>
                     <div *ngIf="myevent.deporte === 'Futbol Sala'">

@@ -19,13 +19,17 @@ router.get("/event/allshow", (req, res, next) => {
 ///OBTENER MIS EVENTOS//////Funciona
 router.get("/event/myshow", function(req, res) {
   const UserId = res.locals.user._id;
+  console.log("entro en mis back")
 
-  Event.find({ author: UserId }, function(err, p) {
-    User.populate(p, { path: "author" }, function(err, p) {
-      res.status(200).json(p);
+  Event.find({ author: UserId })
+    .populate({ path: "author", model: 'User' })
+    .populate({ path: "participantes", model: 'User' })
+    .then(allMyEvents => res.status(200).json(allMyEvents))
+      .catch(e => res.status(500).json(err));
+     
     });
-  });
-});
+ 
+
 ///////UNIRME AL EVENTO /////// Funciona
 router.post("/event/join/:EventId", (req, res, next) => {
   UserId = res.locals.user._id;
@@ -48,12 +52,31 @@ router.post("/event/join/:EventId", (req, res, next) => {
 
 router.get("/event/join/:id", function(req, res, next) {
   const id = req.params.id;
+
+
   Event.findById(id, function(err, p) {
-    User.populate(p, { path: "author" })
-      .then(list => res.status(200).json(list))
-      .catch(e => res.status(500).json(e));
+    User.populate(p, { path: "author" }),
+    User.populate(p, { path: "participantes" })
+   
+    
+    .then(list => res.status(200).json(list))
+    .catch(e => res.status(500).json(e));
+
+       
+
+      
+    
+    
+
+   
+
+    
+     
+    
+      
   });
 });
+
 
 // .then(MyEvents => res.status(200).json(MyEvents))
 // .catch(e => res.status(500).json(e));
@@ -70,7 +93,10 @@ router.post("/event/newEvent", (req, res, next) => {
   const maxPart = req.body.maxPart;
   const time = req.body.time;
   const date = req.body.date;
-  const direccion = req.body.direccion;
+  const ciudad = req.body.ciudad;
+  const calle = req.body.calle;
+  const comunidad = req.body.comunidad;
+  var numero = 0;
   var img = "";
 
   if (deporte === "Futbol 11") {
@@ -102,8 +128,13 @@ router.post("/event/newEvent", (req, res, next) => {
     img,
     "location.lat": lat,
     "location.lng": lng,
+    ciudad,
+    calle,
+    comunidad,
     maxPart,
-    direccion
+    numero
+    
+    // "direccion.ciudad": "" + ciudad
   });
 
   newEvent.save().then(evento => {
@@ -166,30 +197,38 @@ router.post("/event/delete/:eventId", (req, res, next) => {
   });
 });
 router.put("/event/deletepart/:eventId", (req, res, next) => {
-  console.log("entro al backkkkkk");
+  console.log("entro al backkkkkkend");
   const eventId = req.params.eventId;
-  const userId = req.user._id;
-  console.log(userId);
-  console.log(eventId);
+  var userId = req.user._id;
 
   Event.findById(eventId, function(err, evento) {
-    // console.log(evento.participantes);
-    // console.log(req.user._id)
 
+    
     evento.participantes.forEach((x, i) => {
-      if (x + "" == req.user._id + "") {
-        let arr = evento.participantes.splice(i + 1, 1);
-        console.log(arr);
-        console.log(req.user._id);
+      if (x + "" === userId + "") {
+        console.log(x)
+        
+       
+        if(evento.participantes.length == 1){
+          console.log("es igual a 1 parti")
+          var arr = evento.participantes.splice(i + 1,1);
+          console.log(arr)
+      
+        }else if (evento.participantes.length >1){
+          var arr = evento.participantes.splice(i,1);
+          console.log("es igual a +1 parti")
+          console.log(arr)
+
+        }
         Event.findByIdAndUpdate(
           eventId,
-          { $set: { participantes: arr } },
+          { $set: { 'participantes' : evento.participantes } },
           { new: true },
           function(err, tank) {
             if (err) {
               return res.status(500).json({ message: "Something went wrong" });
             } else {
-              return res.status(200).json({ tank });
+              return res.status(200).json({tank});
             }
           }
         );

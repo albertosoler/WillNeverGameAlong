@@ -8,6 +8,8 @@ import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { SessionService } from '../../services/session.service';
 import { BoundCallbackObservable } from 'rxjs/observable/BoundCallbackObservable';
+import * as moment from 'moment';
+let now = moment().format('LLLL');
 
 @Component({
   selector: 'app-details-event',
@@ -16,7 +18,11 @@ import { BoundCallbackObservable } from 'rxjs/observable/BoundCallbackObservable
 })
 export class DetailsEventComponent implements OnInit {
 eventos:any;
-arrPar: Array<string>;
+time:any;
+date:any;
+datenow:any;
+atras:any;
+arrPar: Array<any>;
 bool: boolean = true;
 user;
 evento={};
@@ -27,6 +33,8 @@ public searchControl: FormControl;
 public zoom: number;
 
 
+
+
 @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -34,6 +42,10 @@ public zoom: number;
 
   constructor(public  session:SessionService , public eventserv:EventService,private router:Router,private route: ActivatedRoute,private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { 
+    
+
+      
+      
       this.user = this.session.getUser();
     this.session.getUserEvent()
       .subscribe(user => {
@@ -49,20 +61,45 @@ public zoom: number;
 
 
   ngOnInit() {
+   
+
+    
+   
+        
+           
+         
+        
 
     this.route.params.subscribe(params => {
       this.getEvent(params['id']);
       this.eventserv.get(params['id']).subscribe( m => {
-        console.log("esto es h")
+       
         this.arrPar = m.participantes;
+        console.log( this.arrPar)
         
         this.arrPar.forEach( p => {
-          if (p === this.user._id) {
+          if ( p._id === this.user._id) {
             this.bool = false;
+            console.log(p._id)
           }
         })
+        this.datenow =  moment();
+        this.time=(m.date + " " + m.time + "");
+       
+        this.date = moment(this.time,"YYYY-MM-DD h:mm:ss")
+        console.log(this.datenow)
+        console.log(this.date)
+       this.atras = (Math.round(this.date.diff(this.datenow, 'minutes')));
+      
+        window.setInterval(() => { this.ngOnInit() }, 60000);
+
+      
+        
       })
     });
+
+
+    
     
     this.route.params.subscribe(params => {
       this.route.params.subscribe(body=> {this.eventid = body.id

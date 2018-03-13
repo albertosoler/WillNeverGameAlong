@@ -20,8 +20,15 @@
 
 		<div class="col sm-6">
 		<div id="centered">
-				<form (ngSubmit)="createEvent(myForm)" #myForm="ngForm"  >
+				<form (ngSubmit)="createEvent(myForm)" #myForm="ngForm">
+
 				  <h1>Detalles</h1>
+								
+						
+
+					<p> <input type="text" [(ngModel)]="ciudad" value="{{places[1].long_name}}" class="form-control margin-bottom-20" id='ciudad' name="ciudad"></p>
+					<p> <input type="text" [(ngModel)]="calle" value="{{places[0].long_name}}" class="form-control margin-bottom-20" id='calle' name="calle"></p>
+					<p> <input type="text" [(ngModel)]="comunidad" value="{{places[3].long_name}}" class="form-control margin-bottom-20" id='comunidad' name="comunidad"></p>
 				  <p>
 						<input type="text" [(ngModel)]="lat" hidden value="{{latitude}}" class="form-control margin-bottom-20" id='location1' name="lat"
 						 placeholder="Enter your latitud">

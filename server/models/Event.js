@@ -13,9 +13,15 @@ const EventSchema = new Schema(
     description: String,
     location: {
       lat: Number,
-      lng: Number
+      lng: Number,
   },
-    direction:String,
+  ciudad:String,
+  calle:String,
+  comunidad:String,
+  numero:Number,
+
+
+ 
     maxPart: Number,
     date: String,
     time:String,

@@ -37,27 +37,23 @@
 
 
       <select type="text" [(ngModel)]="term">
-        <option>Futbol 11</option>
-        <option>Baloncesto</option>
-        <option>Futbol 7</option>
-        <option>Tenis</option>
-        <option>Padel</option>
-        <option>Baloncesto</option>
-        <option>Futbol Sala</option>
+        <option *ngFor="let eventis of eventos">{{eventis.deporte}}</option>
         <option></option>
       </select>
       <i class="fas fa-search"></i>
 
       <select type="text" [(ngModel)]="term1">
-        <option>2018-03-08</option>
-        <option>2018-03-09</option>
-        <option>2018-03-10</option>
-        <option>2018-03-11</option>
-        <option>2018-03-12</option>
-        <option>2018-03-13</option>
+        <option *ngFor="let eventis of eventos" >{{eventis.date}}</option>
+
         <option></option>
       </select>
       <i class="fas fa-search"></i>
+
+      <select type="text" [(ngModel)]="term2">
+        
+        <option *ngFor="let eventis of eventos">{{eventis.ciudad}}</option>
+        <option></option>
+        </select>
 
 
 
@@ -71,14 +67,15 @@
 
 <div class="container">
   <div class="row">
-    <div class=" col-md-3 " *ngFor="let event of eventos | filter:term | filter:term1">
+    <div class=" col-md-3 " *ngFor="let event of eventos | filter:term | filter:term1 | filter:term2">
       <div class="card profile-card">
         <figure>
           <img src="{{event.img}}" class="img-fluid img-profile" alt="Card image">
         </figure>
         <div class="card-block text-xs-center">
-          <p class="h4 card-title font-weight-bold">{{event.deporte}}</p>
-          <p class="h6 card-subtitle text-muted">Participantes:{{event.participantes.length}}</p>
+          <p class="h4 card-title font-weight-bold">{{event.deporte}}</p><br>
+          <p class="h6 card-subtitle text-muted">Participantes:{{event.participantes.length}}</p><br>
+          <p class="h6 card-subtitle text-muted">{{event.ciudad}}</p>
           <br>
         </div>
         <figure>
@@ -138,7 +135,9 @@
         <div *ngIf="event.participantes.length < event.maxPart">
           <button type="button" class="btn btn-success" [routerLink]="['/event/join', event._id]">View details</button>
         </div>
+      </div> 
       </div>
     </div>
-  </div>
+
 </div>
+

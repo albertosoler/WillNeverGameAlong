@@ -20,16 +20,20 @@ export class NewEventComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public places:any;
   author:string;
-  name:String;
+  name:Array<Object>;
   description:String;
   maxPart:Number;
   deporte:String;
   error:string;
   lat:Number;
   lng:Number;
+  ciudad:String;
+  calle:String;
+  comunidad:String;
   date:String;
-  direction:String;
+
 
 
 @ViewChild("search")
@@ -43,7 +47,6 @@ export class NewEventComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.route.params.subscribe(body=>this.user_id = body.id)})
-      console.log(this.user_id)
     this.zoom = 4;
     // this.latitude = 39.8282;
     // this.longitude = -98.5795;
@@ -76,6 +79,14 @@ export class NewEventComponent implements OnInit {
           this.lat=this.latitude;
           this.lng=this.longitude;
           this.zoom = 12;
+          this.places = place.address_components;
+          this.ciudad = this.places[1].long_name;
+          this.calle = this.places[0].long_name;
+          this.comunidad = this.places[3].long_name;
+          console.log(this.places)
+          console.log(this.ciudad)
+          console.log(this.calle)
+          console.log(this.comunidad)
         });
       });
     });

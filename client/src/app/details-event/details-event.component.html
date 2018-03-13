@@ -12,24 +12,27 @@
 				</agm-map>
 			</div>
 
-
+					
 	
 						<div class="col-md-6">
+								
 
 
-
-							<div class="card profile-card">
+					
+							<div class="card profile-card" >
 								<figure>
 									<img src="{{eventos.img}}" class="img-fluid img-profile" alt="Card image">
 								</figure>
 								<div class="card-block text-xs-center">
 									<h1 class="h6 card-subtitle text-muted">Deporte: {{eventos.deporte}}</h1>
 									<h1 class="h6 card-subtitle text-muted ">Participantes:{{eventos.participantes.length}}/{{eventos.maxPart}}</h1>
-									<h1 class="h6 card-subtitle text-muted ">Creado por: {{eventos.author.username}}</h1>
 									<h1 class="h6 card-subtitle text-muted ">Hora: {{eventos.time}}</h1>
-
-									<br>
+									<h1 class="h6 card-subtitle text-muted" *ngIf="atras > 0"> Tiempo : {{atras}} minutos</h1>
+									
+									
 								</div>
+									<br>
+							
 								
 
 								<div *ngIf="eventos.participantes.length >= eventos.maxPart">
@@ -39,8 +42,25 @@
 
 
 					</div>
+					<div class="container">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="card profile-card">
+									<div class="card-block text-xs-center">
+									<h1 class="h6 card-subtitle text-muted" >Participantes:<h3 class="h6 card-subtitle text-muted" *ngFor="let eventis of arrPar">{{eventis.username}}</h3></h1>
+
+
+
+									</div>
+					</div>
 				</div>
-			</div>
+				</div>
+
+				</div>
+		
+		
+
+
 
 
 
@@ -63,21 +83,23 @@
 						<a (click)="joinEvent()">Unirse a Evento</a>
 
 					</div>
+				</div>		
+	
+				<div *ngIf="atras < 0">
+					<h1>EVENTO TERMINADO</h1>
 				</div>
 
 
-
-				<div *ngIf="eventos.author._id === user._id">
-					<div class="button-8 ger">
-						<div class="eff-8"></div>
-						<a (click)="remove()"> Borrar Evento</a>
-					</div>
-				</div>
-
-
-
+</div>
 			</div>
 		</div>
-	</div>
+		</div>
+		</div>
+	
+	
+
+	
+	
+	
 
 </body>
