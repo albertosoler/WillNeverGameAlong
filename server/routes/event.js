@@ -52,27 +52,11 @@ router.post("/event/join/:EventId", (req, res, next) => {
 
 router.get("/event/join/:id", function(req, res, next) {
   const id = req.params.id;
-
-
   Event.findById(id, function(err, p) {
     User.populate(p, { path: "author" }),
     User.populate(p, { path: "participantes" })
-   
-    
-    .then(list => res.status(200).json(list))
-    .catch(e => res.status(500).json(e));
-
-       
-
-      
-    
-    
-
-   
-
-    
-     
-    
+      .then(list => res.status(200).json(list))
+      .catch(e => res.status(500).json(e));
       
   });
 });
@@ -211,7 +195,7 @@ router.put("/event/deletepart/:eventId", (req, res, next) => {
        
         if(evento.participantes.length == 1){
           console.log("es igual a 1 parti")
-          var arr = evento.participantes.splice(i + 1,1);
+          var arr = evento.participantes.splice(i,1);
           console.log(arr)
       
         }else if (evento.participantes.length >1){
