@@ -53,8 +53,8 @@ router.post("/event/join/:EventId", (req, res, next) => {
 router.get("/event/join/:id", function(req, res, next) {
   const id = req.params.id;
   Event.findById(id, function(err, p) {
-    User.populate(p, { path: "author" }),
-    User.populate(p, { path: "participantes" })
+    User.populate(p, { path: "author", models: "User" }),
+    User.populate(p, { path: "participantes", models:"User" })
       .then(list => res.status(200).json(list))
       .catch(e => res.status(500).json(e));
       

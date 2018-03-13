@@ -78,7 +78,8 @@
                 </figure>
                 <div class="card-block text-xs-center">
                   <p class="h4 card-title font-weight-bold">{{myevent.deporte}}</p><br>
-                  <p class="h6 card-subtitle text-muted">Participantes:{{myevent.participantes.length}}</p>
+                  <p class="h6 card-subtitle text-muted">Participantes:{{myevent.participantes.length}}</p><br>
+                  <p class="h6 card-subtitle text-muted">{{myevent.ciudad}}</p>
                 </div>
                 <figure>
                     <div *ngIf="myevent.deporte === 'Futbol Sala'">
@@ -139,7 +140,8 @@
          
          </div>
          <div *ngIf="myevent.participantes.length >= myevent.maxPart">
-            <p>Evento LLeno</p>
+            <button type="button" class="btn btn-success" [routerLink]="['/event/join', myevent._id]">View details</button>
+           
            </div>
               </div>
             </div>
